@@ -20,6 +20,12 @@ npm install
 npm start
 ``` 
 
+* start in browser
+
+```js
+localhost:3000
+``` 
+
 ## What You're Getting
 ```bash
 ├── CONTRIBUTING.md
