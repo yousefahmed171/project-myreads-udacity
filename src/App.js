@@ -24,6 +24,7 @@ class BooksApp extends Component {
     this.ChangeShelf = this.ChangeShelf.bind(this);
     }
 
+
     //Books Shelf
     ChangeShelf(book, shelf){
         BooksAPI.update(book, shelf).then(this.setState((state) => ({
@@ -36,6 +37,12 @@ class BooksApp extends Component {
             }),
             showSearchPage: false
         })));
+        BooksAPI.update(book, shelf).then(() => this.setState((state) => {
+            book.shelf = shelf
+            const newBooks = state.books.filter(bookOnState => book.id !== bookOnState.id).concat(book)
+            return { books: newBooks }
+        })
+        )
     };
     
     render() {

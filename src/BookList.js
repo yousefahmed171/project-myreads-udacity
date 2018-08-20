@@ -4,9 +4,10 @@ class BookList extends Component {
 
     render() {
 
-        const { book, ChangeShelf } = this.props
-        const { shelf, imageLinks, title, authors } = book
-        const { thumbnail } = imageLinks
+        const { book, ChangeShelf} = this.props;
+        const { imageLinks, shelf, title, authors } = book ;
+        let image = imageLinks ? imageLinks.thumbnail : 'https://books.google.com/googlebooks/images/no_cover_thumb.gif';
+        image = image.replace("http://", "https://");
 
         return (
             <div className="book">
@@ -14,7 +15,7 @@ class BookList extends Component {
                     <div className="book-cover" style={{
                         width: 130,
                         height: 195,
-                        backgroundImage: 'url(' + thumbnail +')' }}/>
+                        backgroundImage: 'url(' + image +')' }}/>
                     <div className="book-shelf-changer">
                         <select 
                             onChange={(e) => 
